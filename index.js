@@ -108,7 +108,7 @@ function init() {
 
 			const readmeContents = generateMarkdown(data, LICENSES)
 
-			fs.writeFile("README.md", readmeContents, (err) =>
+			fs.writeFile("./output/README.md", readmeContents, (err) =>
 				err ? console.error(err) : console.log("README.md generated.")
 			);
 		});

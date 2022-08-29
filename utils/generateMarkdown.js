@@ -21,35 +21,42 @@ function generateMarkdown(data, licenses) {
 	const titleStr = `# ${data.title}\n`;
 	
 	// Description
-	let descriptionStr = "# Description\n\n";
+	let descriptionStr = "## Description\n\n";
 	descriptionStr += data.description;
 
 	// Table of Contents
-	let tableOfContentsStr = "# Table of Contents\n\n";
-	// TODO: table of contents
+	let tableOfContentsStr = "## Table of Contents\n\n";
+	tableOfContentsStr += [
+		"- [Installation](#installation)",
+		"- [Usage](#usage)",
+		"- [License](#license)",
+		"- [Contributing](#contributing)",
+		"- [Tests](#tests)",
+		"- [Questions](#questions)",
+	].join("\n");
 
 	// Installation
-	let installationStr = "# Installation\n\n";
+	let installationStr = "## Installation\n\n";
 	installationStr += data.installation;
 
 	// Usage
-	let usageStr = "# Usage\n\n";
+	let usageStr = "## Usage\n\n";
 	usageStr += data.usageInformation;
 
 	// License
-	let licenseStr = "# License\n\n";
+	let licenseStr = "## License\n\n";
 	// TODO: licensing info
 
 	// Contributing
-	let contributingStr = "# Contributing\n\n";
+	let contributingStr = "## Contributing\n\n";
 	contributingStr += data.contributing;
 
 	// Tests
-	let testsStr = "# Tests\n\n";
+	let testsStr = "## Tests\n\n";
 	testsStr += data.testInstructions;
 
 	// Questions
-	let questionsStr = "# Questions\n\n";
+	let questionsStr = "## Questions\n\n";
 	// TODO: questions contents with email/github username
 	
 	const readmeContents = [

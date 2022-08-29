@@ -1,14 +1,19 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseBadge(license) {
+	if (!license) {
+		return "";
+	}
+	return `![](https://img.shields.io/static/v1?label=license&message=${license}&color=brightgreen)`;
+};
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(projectTitle, license, licenseUrl) {
+	let licenseStr = "## License\n\n";
+	licenseStr += `${projectTitle} is licensed under the [${license}](${licenseUrl}) license.`;
+	return licenseStr
+}
 
 /**
  * Generate the contents of the README file using the user command line input data.
@@ -18,7 +23,8 @@ function renderLicenseSection(license) {}
  */
 function generateMarkdown(data, licenses) {
 	// Document title
-	const titleStr = `# ${data.title}\n`;
+	let titleStr = `# ${data.title}\n`;
+	titleStr += renderLicenseBadge(data.license);
 	
 	// Description
 	let descriptionStr = "## Description\n\n";
@@ -43,10 +49,6 @@ function generateMarkdown(data, licenses) {
 	let usageStr = "## Usage\n\n";
 	usageStr += data.usageInformation;
 
-	// License
-	let licenseStr = "## License\n\n";
-	// TODO: licensing info
-
 	// Contributing
 	let contributingStr = "## Contributing\n\n";
 	contributingStr += data.contributing;
@@ -65,7 +67,7 @@ function generateMarkdown(data, licenses) {
 		tableOfContentsStr,
 		installationStr,
 		usageStr,
-		licenseStr,
+		renderLicenseSection(data.title, data.license, licenses[data.license]),
 		contributingStr,
 		testsStr,
 		questionsStr,

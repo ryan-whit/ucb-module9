@@ -4,6 +4,8 @@ function renderLicenseBadge(license) {
 	if (!license) {
 		return "";
 	}
+	// Badge format uses the `query string parameters` as outlined on the
+	// shields webpage: https://shields.io/category/license.
 	return `![](https://img.shields.io/static/v1?label=license&message=${license}&color=brightgreen)`;
 };
 
@@ -11,9 +13,18 @@ function renderLicenseBadge(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(projectTitle, license, licenseUrl) {
 	let licenseStr = "## License\n\n";
-	licenseStr += `${projectTitle} is licensed under the [${license}](${licenseUrl}) license.`;
+	licenseStr += `\`${projectTitle}\` is licensed under the [${license}](${licenseUrl}) license.`;
 	return licenseStr
-}
+};
+
+function renderQuestionsSection(githubUsername, emailAddress) {
+	let questionStr = "## Questions\n\n";
+	const githubProfileUrl = "https://github.com/" + githubUsername;
+	questionStr += "For additional questions, please visit our page ";
+	questionStr += `[on GitHub](${githubProfileUrl}),`;
+	questionStr += `or email us at \`${emailAddress}\`.`;
+	return questionStr;
+};
 
 /**
  * Generate the contents of the README file using the user command line input data.
@@ -57,10 +68,6 @@ function generateMarkdown(data, licenses) {
 	let testsStr = "## Tests\n\n";
 	testsStr += data.testInstructions;
 
-	// Questions
-	let questionsStr = "## Questions\n\n";
-	// TODO: questions contents with email/github username
-	
 	const readmeContents = [
 		titleStr,
 		descriptionStr,
@@ -70,7 +77,7 @@ function generateMarkdown(data, licenses) {
 		renderLicenseSection(data.title, data.license, licenses[data.license]),
 		contributingStr,
 		testsStr,
-		questionsStr,
+		renderQuestionsSection(data.username, data.emailAddress),
 	].join('\n\n');
 
 	return readmeContents;

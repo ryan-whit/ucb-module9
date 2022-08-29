@@ -3,45 +3,19 @@ const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const fs = require("fs");
 
-// README sections
-// title (in README title)
-// Description
-// Table of Contents
-// Installation
-// Usage
-// License
-// Contributing
-// Tests
-// Questions
 
-
-// Map license names to their associated license badge string.
-// License names copied from here: https://shields.io/category/license
+// License list and the associated URLs were obtained from the following sources:
+// https://opensource.org/licenses
+// https://www.gnu.org/licenses/license-list.en.html
+// https://directory.fsf.org/wiki/Main_Page
 const LICENSES = {
-	"APM": "/apm/l/:packageName",
-	"AUR": "/aur/license/:packageName",
-	"Bower": "/bower/l/:packageName",
-	"Cocoapods": "/cocoapods/l/:spec",
-	"Conda": "/conda/l/:channel/:package",
-	"CPAN": "/cpan/l/:packageName",
-	"CRAN/METACRAN": "/cran/l/:packageName",
-	"Crates.io": "/crates/l/:crate",
-	"Crates.io": "/crates/l/:crate/:version",
-	"CTAN": "/ctan/l/:library",
-	"DUB": "/dub/l/:packageName",
-	"Eclipse Marketplace": "/eclipse-marketplace/l/:name",
-	"GitHub": "/github/license/:user/:repo",
-	"GitLab": "/gitlab/license/:project+",
-	"GitLab (self-managed)": "/gitlab/license/:project+?gitlab_url=https%3A%2F%2Fjihulab.com",
-	"Greasy Fork": "/greasyfork/l/:scriptId",
-	"Hex.pm": "/hexpm/l/:packageName",
-	"NPM": "/npm/l/:packageName",
-	"Ore": "/ore/l/:pluginId",
-	"Packagist": "/packagist/l/:user/:repo",
-	"Packagist (custom server)": "/packagist/l/:user/:repo?server=https%3A%2F%2Fpackagist.org",
-	"PyPI": "/pypi/l/:packageName",
-	"REUSE Compliance": "/reuse/compliance/:remote+",
-	"Weblate component license": "/weblate/l/:project/:component?server=https%3A%2F%2Fhosted.weblate.org",
+	"Apache-2.0": "http://www.apache.org/licenses/",
+	"BSD-3-Clause": "https://spdx.org/licenses/BSD-3-Clause.html",
+	"GPL-3.0": "https://www.gnu.org/licenses/gpl-3.0.en.html",
+	"MIT": "https://spdx.org/licenses/MIT.html",
+	"MPL-2.0": "https://www.mozilla.org/en-US/MPL/2.0/",
+	"CDDL-1.0": "http://opensource.org/licenses/CDDL-1.0",
+	"EPL-2.0": "https://spdx.org/licenses/EPL-1.0.html",
 };
 
 

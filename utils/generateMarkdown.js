@@ -10,35 +10,48 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
+/**
+ * Generate the contents of the README file using the user command line input data.
+ * @param {Object} data - Data passed from the user CLI 
+ * @param {Object} licenses - Key/value pairs of License name and the badge string
+ * @returns {str} - contents of the README.md file
+ */
+function generateMarkdown(data, licenses) {
 	// Document title
-	const titleStr = `# ${data.title}`;
+	const titleStr = `# ${data.title}\n`;
 	
 	// Description
-	const descriptionStr = "# Description";
-	
+	let descriptionStr = "# Description\n\n";
+	descriptionStr += data.description;
+
 	// Table of Contents
-	const tableOfContentsStr = "# Table of Contents";
+	let tableOfContentsStr = "# Table of Contents\n\n";
+	// TODO: table of contents
 
 	// Installation
-	const installationStr = "# Installation";
-	
+	let installationStr = "# Installation\n\n";
+	installationStr += data.installation;
+
 	// Usage
-	const usageStr = "# Usage";
+	let usageStr = "# Usage\n\n";
+	usageStr += data.usageInformation;
 
 	// License
-	const licenseStr = "# License";
+	let licenseStr = "# License\n\n";
+	// TODO: licensing info
 
 	// Contributing
-	const contributingStr = "# Contributing";
+	let contributingStr = "# Contributing\n\n";
+	contributingStr += data.contributing;
 
 	// Tests
-	const testsStr = "# Tests";
+	let testsStr = "# Tests\n\n";
+	testsStr += data.testInstructions;
 
 	// Questions
-	const questionsStr = "# Questions";
-
+	let questionsStr = "# Questions\n\n";
+	// TODO: questions contents with email/github username
+	
 	const readmeContents = [
 		titleStr,
 		descriptionStr,
@@ -49,7 +62,7 @@ function generateMarkdown(data) {
 		contributingStr,
 		testsStr,
 		questionsStr,
-	].join();
+	].join('\n\n');
 
 	return readmeContents;
 }

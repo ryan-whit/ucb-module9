@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown.js");
+const fs = require("fs");
 
 // README sections
 // title (in README title)
@@ -59,7 +60,7 @@ const inquirerQuestions = [
 	},
 	{
 		type: 'input',
-		name: 'installationInstructions',
+		name: 'installation',
 		message: 'Please provide installation instructions: ',
 	},
 	{
@@ -69,7 +70,7 @@ const inquirerQuestions = [
 	},
 	{
 		type: 'input',
-		name: 'contributingGuidelines',
+		name: 'contributing',
 		message: 'Please provide the contributing guidelines: ',
 	},
 	{
@@ -105,8 +106,11 @@ function init() {
 		.then((data) => {
 			console.log("Input successful.");
 
-			generateMarkdown.generateMarkdown(data, LICENSES)
+			const readmeContents = generateMarkdown(data, LICENSES)
 
+			fs.writeFile("README.md", readmeContents, (err) =>
+				err ? console.error(err) : console.log("README.md generated.")
+			);
 		});
 };
 

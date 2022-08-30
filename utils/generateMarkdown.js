@@ -1,5 +1,9 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+/**
+ * Generate a license badge based on which license agreement is passed in.
+ * If there is not license, return an empty string.
+ * @param {str} license - license provided by the CLI options. 
+ * @returns {str} - URL of the Shields badge.
+ */
 function renderLicenseBadge(license) {
 	if (!license) {
 		return "";
@@ -9,19 +13,36 @@ function renderLicenseBadge(license) {
 	return `![](https://img.shields.io/static/v1?label=license&message=${license}&color=brightgreen)`;
 };
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+
+/**
+ * Render the license section of the README based on user input.
+ * If a license is not provided, return an empty string.
+ * @param {str} projectTitle - Title of the project.
+ * @param {str} license - license provided by the CLI options.
+ * @param {str} licenseUrl - URL to the license information.
+ * @returns {str} - License section of the README file.
+ */
 function renderLicenseSection(projectTitle, license, licenseUrl) {
+	if (!license) {
+		return "";
+	}
 	let licenseStr = "## License\n\n";
 	licenseStr += `\`${projectTitle}\` is licensed under the [${license}](${licenseUrl}) license.`;
 	return licenseStr
 };
 
+
+/**
+ * Generate the Questions section of the README file.
+ * @param {str} githubUsername - GitHub username - will be appended to the github URL.
+ * @param {str} emailAddress - Developer email address used for contributing.
+ * @returns {str} Contents of the `Questions` section of the README file.
+ */
 function renderQuestionsSection(githubUsername, emailAddress) {
 	let questionStr = "## Questions\n\n";
 	const githubProfileUrl = "https://github.com/" + githubUsername;
 	questionStr += "For additional questions, please visit our page ";
-	questionStr += `[on GitHub](${githubProfileUrl}),`;
+	questionStr += `[on GitHub](${githubProfileUrl}), `;
 	questionStr += `or email us at \`${emailAddress}\`.`;
 	return questionStr;
 };

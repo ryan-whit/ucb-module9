@@ -1,8 +1,7 @@
-// TODO: Include packages needed for this application
+// Imported the needed modules.
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const fs = require("fs");
-
 
 // License list and the associated URLs were obtained from the following sources:
 // https://opensource.org/licenses
@@ -18,9 +17,8 @@ const LICENSES = {
 	"EPL-2.0": "https://spdx.org/licenses/EPL-1.0.html",
 };
 
-
 // Questions for the user that gather content for the README file.
-// Will be passed to inquirer when the app is called from the command line
+// Will be passed to inquirer when the app is called from the command line.
 const inquirerQuestions = [
 	{
 		type: 'input',
@@ -56,7 +54,7 @@ const inquirerQuestions = [
 		type: 'list',
 		name: 'license',
 		message: 'Please select the license for your project: ',
-		choices: Object.keys(LICENSES),
+		choices: Object.keys(LICENSES),  // Using the object keys to query the user from the command line
 	},
 	{
 		type: 'input',
@@ -70,18 +68,15 @@ const inquirerQuestions = [
 	},
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
-
-// TODO: Create a function to initialize app
+// Initialize the app.
 function init() {
 	inquirer
 		.prompt(inquirerQuestions)
 		.then((data) => {
-			console.log("Input successful.");
-
+			// Generate the markdown contents that will be written to a file.
 			const readmeContents = generateMarkdown(data, LICENSES)
 
+			// Write the generated contents to a README file.
 			fs.writeFile("./output/README.md", readmeContents, (err) =>
 				err ? console.error(err) : console.log("README.md generated.")
 			);
@@ -89,5 +84,5 @@ function init() {
 };
 
 
-// Function call to initialize app
+// Initialize the app.
 init();

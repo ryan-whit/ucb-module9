@@ -38,7 +38,7 @@ Your new README file will be written to `./output/README.md`.
 
 ## Demo
 
-
+![](./data/module-9-node.mp4)
 
 ## Tests
 

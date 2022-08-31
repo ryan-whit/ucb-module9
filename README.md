@@ -1,4 +1,6 @@
-# ucb-module9
+# readme-generator
+
+README file generator.
 
 UC Berkeley Module 9 - Node.js
 
@@ -22,7 +24,13 @@ Use `node.js` and `inquirer` to generate a README.md file using command line pro
 
 ## Installation
 
-To install, run the following from the command line (assumes you have `npm` installed):
+To install, first clone the repo:
+
+```bash
+git clone git@github.com:ryan-whit/ucb-module9.git
+```
+
+Next, navigate to the cloned repo and run the following from the command line (assumes `npm` is installed):
 
 ```bash
 npm install
@@ -40,7 +48,9 @@ Your new README file will be written to `./output/README.md`.
 
 ## Demo
 
-![GIF of the app demo.](./data/app_demo.gif)
+![Video of the app demo.](https://drive.google.com/file/d/1Gbccpl6AK8iRv4e63DutinTwKQn6BbiK/view?usp=sharing)
+
+![Other video.](https://drive.google.com/file/d/1S4V_2zMf9tITorysm5dUIyxmRTG5e1qc/view?usp=sharing)
 
 ## Tests
 
@@ -48,4 +58,4 @@ There are currently no tests implemented for this application.
 
 ## Questions
 
-For additional questions, please visit the GitHub page [on GitHub](https://github.com/ryan-whit).
+For additional questions, please visit the repo [on GitHub](https://github.com/ryan-whit).

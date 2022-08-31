@@ -48,9 +48,9 @@ Your new README file will be written to `./output/README.md`.
 
 ## Demo
 
-![Video of the app demo.](https://drive.google.com/file/d/1Gbccpl6AK8iRv4e63DutinTwKQn6BbiK/view?usp=sharing)
+(click on gif to go to full video)
 
-![Other video.](https://drive.google.com/file/d/1S4V_2zMf9tITorysm5dUIyxmRTG5e1qc/view?usp=sharing)
+[![Video of the app demo.](./data/app_demo.gif)](https://drive.google.com/file/d/1Gbccpl6AK8iRv4e63DutinTwKQn6BbiK/view?usp=sharing)
 
 ## Tests
 

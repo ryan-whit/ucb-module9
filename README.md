@@ -58,4 +58,4 @@ There are currently no tests implemented for this application.
 
 ## Questions
 
-For additional questions, please visit the repo [on GitHub](https://github.com/ryan-whit).
+For additional questions, please visit the repo [on GitHub](https://github.com/ryan-whit/ucb-module9).

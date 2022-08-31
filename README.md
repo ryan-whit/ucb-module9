@@ -6,9 +6,11 @@ GitHub repo: https://github.com/ryan-whit/ucb-module9
 
 ## Description
 
-Use `node.js` to generate a README.md file using command line prompts.
+Use `node.js` and `inquirer` to generate a README.md file using command line prompts.
 
 - As a developer, I want a README generator so that I can quickly create a professional README for a new project.
+- When I am prompted for input to the README template, then I can provide that input from the command line.
+- When I am finished providing my input, then the app auto-generates a populated README file using the template.
 
 ## Table of Contents
 
@@ -38,7 +40,7 @@ Your new README file will be written to `./output/README.md`.
 
 ## Demo
 
-./data/module-9-node.mp4
+![GIF of the app demo.](./data/app_demo.gif)
 
 ## Tests
 
